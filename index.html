@@ -14,6 +14,24 @@
     50% { transform: translate(var(--dx), var(--dy)) rotate(var(--r1)); }
     100% { transform: translate(0,0) rotate(var(--r0)); }
   }
+
+  /* ▼ 条件カード（4分割グリッド） */
+  @media (max-width: 680px) {
+    .cond-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    .cond-cell { padding: 20px 12px !important; }
+  }
+
+  /* ▼ 確定メンバーリスト：横に伸びて崩れる問題への対応 */
+  .member-row { min-width: 0; }
+  .member-link { min-width: 0; flex-wrap: wrap; }
+  .member-handle { word-break: break-all; }
+  @media (max-width: 480px) {
+    .member-row { gap: 10px !important; padding: 14px 4px !important; }
+    .member-role { width: 26px !important; font-size: 10px !important; }
+    .member-link { font-size: 14px !important; }
+    .member-handle { font-size: 12px !important; }
+    .member-badge { font-size: 10px !important; padding: 2px 7px !important; }
+  }
 </style>
 </head>
 <body>
@@ -47,32 +65,32 @@
   </div>
 
   <div style="position:relative; z-index:1; max-width:920px; margin:0 auto; padding:0 24px 64px;">
-    <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:1px; background:oklch(0.3 0.02 50); border:1px solid oklch(0.3 0.02 50); border-radius:10px; overflow:hidden;">
-      <div style="background:oklch(0.18 0.015 50); padding:26px 18px; text-align:center;">
+    <div class="cond-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:1px; background:oklch(0.3 0.02 50); border:1px solid oklch(0.3 0.02 50); border-radius:10px; overflow:hidden;">
+      <div class="cond-cell" style="background:oklch(0.18 0.015 50); padding:26px 18px; text-align:center;">
         <div style="font-size:12px; color:oklch(0.68 0.02 70); letter-spacing:0.08em; margin-bottom:10px;">PL人数</div>
         <div style="font-family:'Shippori Mincho', serif; font-size:28px; color:oklch(0.94 0.012 70);">12名</div>
       </div>
-      <div style="background:oklch(0.18 0.015 50); padding:26px 18px; text-align:center;">
+      <div class="cond-cell" style="background:oklch(0.18 0.015 50); padding:26px 18px; text-align:center;">
         <div style="font-size:12px; color:oklch(0.68 0.02 70); letter-spacing:0.08em; margin-bottom:10px;">確定PL</div>
         <div style="font-family:'Shippori Mincho', serif; font-size:28px; color:oklch(0.94 0.012 70);">4名</div>
       </div>
-      <div style="background:oklch(0.18 0.015 50); padding:26px 18px; text-align:center;">
+      <div class="cond-cell" style="background:oklch(0.18 0.015 50); padding:26px 18px; text-align:center;">
         <div style="font-size:12px; color:oklch(0.68 0.02 70); letter-spacing:0.08em; margin-bottom:10px;">募集人数</div>
         <div style="font-family:'Shippori Mincho', serif; font-size:28px; color:oklch(0.6 0.19 30);">残り8名</div>
       </div>
-      <div style="background:oklch(0.18 0.015 50); padding:26px 18px; text-align:center;">
+      <div class="cond-cell" style="background:oklch(0.18 0.015 50); padding:26px 18px; text-align:center;">
         <div style="font-size:12px; color:oklch(0.68 0.02 70); letter-spacing:0.08em; margin-bottom:10px;">セッション形式</div>
         <div style="font-family:'Shippori Mincho', serif; font-size:28px; color:oklch(0.94 0.012 70);">半テキ</div>
       </div>
-      <div style="background:oklch(0.18 0.015 50); padding:26px 18px; text-align:center;">
+      <div class="cond-cell" style="background:oklch(0.18 0.015 50); padding:26px 18px; text-align:center;">
         <div style="font-size:12px; color:oklch(0.68 0.02 70); letter-spacing:0.08em; margin-bottom:10px;">対象</div>
         <div style="font-family:'Shippori Mincho', serif; font-size:15px; color:oklch(0.94 0.012 70); line-height:1.6;">確定KP・PLのFF<br>＞そのFF</div>
       </div>
-      <div style="background:oklch(0.18 0.015 50); padding:26px 18px; text-align:center;">
+      <div class="cond-cell" style="background:oklch(0.18 0.015 50); padding:26px 18px; text-align:center;">
         <div style="font-size:12px; color:oklch(0.68 0.02 70); letter-spacing:0.08em; margin-bottom:10px;">環境</div>
         <div style="font-family:'Shippori Mincho', serif; font-size:18px; color:oklch(0.94 0.012 70);">スマホ不可・PC推奨</div>
       </div>
-      <div style="background:oklch(0.18 0.015 50); padding:26px 18px; text-align:center; grid-column:span 2;">
+      <div class="cond-cell" style="background:oklch(0.18 0.015 50); padding:26px 18px; text-align:center; grid-column:span 2;">
         <div style="font-size:12px; color:oklch(0.68 0.02 70); letter-spacing:0.08em; margin-bottom:10px;">応募順</div>
         <div style="font-family:'Shippori Mincho', serif; font-size:20px; color:oklch(0.94 0.012 70);">先着順ではありません</div>
         <a href="#hearing" style="display:block; margin-top:8px; font-size:11px; color:oklch(0.7 0.02 70); text-decoration:underline;">※シナリオの性質上KPによるヒアリングがあります</a>
@@ -230,67 +248,67 @@
       <p style="font-size:12px; color:oklch(0.58 0.02 70); margin:10px 0 0;">敬称略・五十音順</p>
     </div>
     <div style="display:flex; flex-direction:column;">
-      <div style="display:flex; align-items:center; gap:16px; padding:16px 8px; border-bottom:1px solid oklch(0.28 0.02 50);">
-        <span style="font-size:11px; letter-spacing:0.1em; color:oklch(0.8 0.13 85); width:32px; flex-shrink:0;">KP</span>
-        <a href="https://x.com/kanzaki624" target="_blank" rel="noopener" style="color:oklch(0.94 0.012 70); text-decoration:none; font-size:15px; font-weight:700; display:flex; align-items:baseline; gap:8px;">神崎<span style="color:oklch(0.55 0.02 70); font-size:13px; font-weight:400;">@kanzaki624</span></a>
+      <div class="member-row" style="display:flex; align-items:center; gap:16px; padding:16px 8px; border-bottom:1px solid oklch(0.28 0.02 50);">
+        <span class="member-role" style="font-size:11px; letter-spacing:0.1em; color:oklch(0.8 0.13 85); width:32px; flex-shrink:0;">KP</span>
+        <a class="member-link" href="https://x.com/kanzaki624" target="_blank" rel="noopener" style="color:oklch(0.94 0.012 70); text-decoration:none; font-size:15px; font-weight:700; display:flex; align-items:baseline; gap:8px;">神崎<span class="member-handle" style="color:oklch(0.55 0.02 70); font-size:13px; font-weight:400;">@kanzaki624</span></a>
+      </div>
+      <div class="member-row" style="display:flex; align-items:center; gap:16px; padding:16px 8px; border-bottom:1px solid oklch(0.28 0.02 50);">
+        <span class="member-role" style="font-size:11px; letter-spacing:0.1em; color:oklch(0.8 0.13 85); width:32px; flex-shrink:0;">SKP</span>
+        <a class="member-link" href="https://x.com/Longhair023SUKO" target="_blank" rel="noopener" style="color:oklch(0.94 0.012 70); text-decoration:none; font-size:15px; font-weight:700; display:flex; align-items:baseline; gap:8px;">うさぎもち<span class="member-handle" style="color:oklch(0.55 0.02 70); font-size:13px; font-weight:400;">@Longhair023SUKO</span></a>
 
-      <div style="display:flex; align-items:center; gap:16px; padding:16px 8px; border-bottom:1px solid oklch(0.28 0.02 50);">
-        <span style="font-size:11px; letter-spacing:0.1em; color:oklch(0.8 0.13 85); width:32px; flex-shrink:0;">SKP</span>
-        <a href="https://x.com/Longhair023SUKO" target="_blank" rel="noopener" style="color:oklch(0.94 0.012 70); text-decoration:none; font-size:15px; font-weight:700; display:flex; align-items:baseline; gap:8px;">うさぎもち<span style="color:oklch(0.55 0.02 70); font-size:13px; font-weight:400;">@Longhair023SUKO</span></a>
-
       </div>
-      <div style="display:flex; align-items:center; gap:16px; padding:16px 8px; border-bottom:1px solid oklch(0.28 0.02 50);">
-        <span style="font-size:11px; letter-spacing:0.1em; color:oklch(0.8 0.13 85); width:32px; flex-shrink:0;">PL</span>
-        <a href="https://x.com/gawasuki055" target="_blank" rel="noopener" style="color:oklch(0.94 0.012 70); text-decoration:none; font-size:15px; font-weight:700; display:flex; align-items:baseline; gap:8px;">ガワスキ<span style="color:oklch(0.55 0.02 70); font-size:13px; font-weight:400;">@gawasuki055</span></a>
+      <div class="member-row" style="display:flex; align-items:center; gap:16px; padding:16px 8px; border-bottom:1px solid oklch(0.28 0.02 50);">
+        <span class="member-role" style="font-size:11px; letter-spacing:0.1em; color:oklch(0.8 0.13 85); width:32px; flex-shrink:0;">PL</span>
+        <a class="member-link" href="https://x.com/gawasuki055" target="_blank" rel="noopener" style="color:oklch(0.94 0.012 70); text-decoration:none; font-size:15px; font-weight:700; display:flex; align-items:baseline; gap:8px;">ガワスキ<span class="member-handle" style="color:oklch(0.55 0.02 70); font-size:13px; font-weight:400;">@gawasuki055</span></a>
         
       </div>
-      <div style="display:flex; align-items:center; gap:16px; padding:16px 8px; border-bottom:1px solid oklch(0.28 0.02 50);">
-        <span style="font-size:11px; letter-spacing:0.1em; color:oklch(0.8 0.13 85); width:32px; flex-shrink:0;">PL</span>
-        <a href="https://x.com/kibaaal" target="_blank" rel="noopener" style="color:oklch(0.94 0.012 70); text-decoration:none; font-size:15px; font-weight:700; display:flex; align-items:baseline; gap:8px;">城原<span style="color:oklch(0.55 0.02 70); font-size:13px; font-weight:400;">@kibaaal</span></a>
-        <span style="font-size:11px; color:oklch(0.65 0.16 30); border:1px solid oklch(0.65 0.16 30 / 0.6); padding:3px 9px; border-radius:999px; flex-shrink:0;">募集窓口</span>
+      <div class="member-row" style="display:flex; align-items:center; gap:16px; padding:16px 8px; border-bottom:1px solid oklch(0.28 0.02 50);">
+        <span class="member-role" style="font-size:11px; letter-spacing:0.1em; color:oklch(0.8 0.13 85); width:32px; flex-shrink:0;">PL</span>
+        <a class="member-link" href="https://x.com/kibaaal" target="_blank" rel="noopener" style="color:oklch(0.94 0.012 70); text-decoration:none; font-size:15px; font-weight:700; display:flex; align-items:baseline; gap:8px;">城原<span class="member-handle" style="color:oklch(0.55 0.02 70); font-size:13px; font-weight:400;">@kibaaal</span></a>
+        <span class="member-badge" style="font-size:11px; color:oklch(0.65 0.16 30); border:1px solid oklch(0.65 0.16 30 / 0.6); padding:3px 9px; border-radius:999px; flex-shrink:0;">募集窓口</span>
       </div>
-      <div style="display:flex; align-items:center; gap:16px; padding:16px 8px; border-bottom:1px solid oklch(0.28 0.02 50);">
-        <span style="font-size:11px; letter-spacing:0.1em; color:oklch(0.8 0.13 85); width:32px; flex-shrink:0;">PL</span>
-        <a href="https://x.com/trpg_cat" target="_blank" rel="noopener" style="color:oklch(0.94 0.012 70); text-decoration:none; font-size:15px; font-weight:700; display:flex; align-items:baseline; gap:8px;">とむねこ<span style="color:oklch(0.55 0.02 70); font-size:13px; font-weight:400;">@trpg_cat</span></a>
+      <div class="member-row" style="display:flex; align-items:center; gap:16px; padding:16px 8px; border-bottom:1px solid oklch(0.28 0.02 50);">
+        <span class="member-role" style="font-size:11px; letter-spacing:0.1em; color:oklch(0.8 0.13 85); width:32px; flex-shrink:0;">PL</span>
+        <a class="member-link" href="https://x.com/trpg_cat" target="_blank" rel="noopener" style="color:oklch(0.94 0.012 70); text-decoration:none; font-size:15px; font-weight:700; display:flex; align-items:baseline; gap:8px;">とむねこ<span class="member-handle" style="color:oklch(0.55 0.02 70); font-size:13px; font-weight:400;">@trpg_cat</span></a>
         
       </div>
-      <div style="display:flex; align-items:center; gap:16px; padding:16px 8px; border-bottom:1px solid oklch(0.28 0.02 50);">
-        <span style="font-size:11px; letter-spacing:0.1em; color:oklch(0.8 0.13 85); width:32px; flex-shrink:0;">PL</span>
-        <a href="https://x.com/8f_Game" target="_blank" rel="noopener" style="color:oklch(0.94 0.012 70); text-decoration:none; font-size:15px; font-weight:700; display:flex; align-items:baseline; gap:8px;">八本足のタコ<span style="color:oklch(0.55 0.02 70); font-size:13px; font-weight:400;">@8f_Game</span></a>
+      <div class="member-row" style="display:flex; align-items:center; gap:16px; padding:16px 8px; border-bottom:1px solid oklch(0.28 0.02 50);">
+        <span class="member-role" style="font-size:11px; letter-spacing:0.1em; color:oklch(0.8 0.13 85); width:32px; flex-shrink:0;">PL</span>
+        <a class="member-link" href="https://x.com/8f_Game" target="_blank" rel="noopener" style="color:oklch(0.94 0.012 70); text-decoration:none; font-size:15px; font-weight:700; display:flex; align-items:baseline; gap:8px;">八本足のタコ<span class="member-handle" style="color:oklch(0.55 0.02 70); font-size:13px; font-weight:400;">@8f_Game</span></a>
         
       </div>
-      <div style="display:flex; align-items:center; gap:16px; padding:16px 8px; border-bottom:1px solid oklch(0.28 0.02 50);">
-        <span style="font-size:11px; letter-spacing:0.1em; color:oklch(0.8 0.13 85); width:32px; flex-shrink:0;">PL</span>
+      <div class="member-row" style="display:flex; align-items:center; gap:16px; padding:16px 8px; border-bottom:1px solid oklch(0.28 0.02 50);">
+        <span class="member-role" style="font-size:11px; letter-spacing:0.1em; color:oklch(0.8 0.13 85); width:32px; flex-shrink:0;">PL</span>
         <span style="color:oklch(0.58 0.02 70); font-size:15px;">募集中</span>
         
       </div>
-      <div style="display:flex; align-items:center; gap:16px; padding:16px 8px; border-bottom:1px solid oklch(0.28 0.02 50);">
-        <span style="font-size:11px; letter-spacing:0.1em; color:oklch(0.8 0.13 85); width:32px; flex-shrink:0;">PL</span>
+      <div class="member-row" style="display:flex; align-items:center; gap:16px; padding:16px 8px; border-bottom:1px solid oklch(0.28 0.02 50);">
+        <span class="member-role" style="font-size:11px; letter-spacing:0.1em; color:oklch(0.8 0.13 85); width:32px; flex-shrink:0;">PL</span>
         <span style="color:oklch(0.58 0.02 70); font-size:15px;">募集中</span>
         
       </div>
-      <div style="display:flex; align-items:center; gap:16px; padding:16px 8px; border-bottom:1px solid oklch(0.28 0.02 50);">
-        <span style="font-size:11px; letter-spacing:0.1em; color:oklch(0.8 0.13 85); width:32px; flex-shrink:0;">PL</span>
+      <div class="member-row" style="display:flex; align-items:center; gap:16px; padding:16px 8px; border-bottom:1px solid oklch(0.28 0.02 50);">
+        <span class="member-role" style="font-size:11px; letter-spacing:0.1em; color:oklch(0.8 0.13 85); width:32px; flex-shrink:0;">PL</span>
         <span style="color:oklch(0.58 0.02 70); font-size:15px;">募集中</span>
         
       </div>
-      <div style="display:flex; align-items:center; gap:16px; padding:16px 8px; border-bottom:1px solid oklch(0.28 0.02 50);">
-        <span style="font-size:11px; letter-spacing:0.1em; color:oklch(0.8 0.13 85); width:32px; flex-shrink:0;">PL</span>
+      <div class="member-row" style="display:flex; align-items:center; gap:16px; padding:16px 8px; border-bottom:1px solid oklch(0.28 0.02 50);">
+        <span class="member-role" style="font-size:11px; letter-spacing:0.1em; color:oklch(0.8 0.13 85); width:32px; flex-shrink:0;">PL</span>
         <span style="color:oklch(0.58 0.02 70); font-size:15px;">募集中</span>
         
       </div>
-      <div style="display:flex; align-items:center; gap:16px; padding:16px 8px; border-bottom:1px solid oklch(0.28 0.02 50);">
-        <span style="font-size:11px; letter-spacing:0.1em; color:oklch(0.8 0.13 85); width:32px; flex-shrink:0;">PL</span>
+      <div class="member-row" style="display:flex; align-items:center; gap:16px; padding:16px 8px; border-bottom:1px solid oklch(0.28 0.02 50);">
+        <span class="member-role" style="font-size:11px; letter-spacing:0.1em; color:oklch(0.8 0.13 85); width:32px; flex-shrink:0;">PL</span>
         <span style="color:oklch(0.58 0.02 70); font-size:15px;">募集中</span>
         
       </div>
-      <div style="display:flex; align-items:center; gap:16px; padding:16px 8px; border-bottom:1px solid oklch(0.28 0.02 50);">
-        <span style="font-size:11px; letter-spacing:0.1em; color:oklch(0.8 0.13 85); width:32px; flex-shrink:0;">PL</span>
+      <div class="member-row" style="display:flex; align-items:center; gap:16px; padding:16px 8px; border-bottom:1px solid oklch(0.28 0.02 50);">
+        <span class="member-role" style="font-size:11px; letter-spacing:0.1em; color:oklch(0.8 0.13 85); width:32px; flex-shrink:0;">PL</span>
         <span style="color:oklch(0.58 0.02 70); font-size:15px;">募集中</span>
         
       </div>
-      <div style="display:flex; align-items:center; gap:16px; padding:16px 8px; border-bottom:1px solid oklch(0.28 0.02 50);">
-        <span style="font-size:11px; letter-spacing:0.1em; color:oklch(0.8 0.13 85); width:32px; flex-shrink:0;">PL</span>
+      <div class="member-row" style="display:flex; align-items:center; gap:16px; padding:16px 8px; border-bottom:1px solid oklch(0.28 0.02 50);">
+        <span class="member-role" style="font-size:11px; letter-spacing:0.1em; color:oklch(0.8 0.13 85); width:32px; flex-shrink:0;">PL</span>
         <span style="color:oklch(0.58 0.02 70); font-size:15px;">募集中</span>
         
       </div>
